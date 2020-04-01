@@ -9,7 +9,7 @@ import java.util.Date;
  */
 public class ClassBorrow {
     private Integer id;
-    private String AppName; //申请人姓名
+    private String appName; //申请人学号
     private Date useDate;   //使用日期
     private String useTime; //使用时间
     private Date appDate;   //申请日期
@@ -26,11 +26,11 @@ public class ClassBorrow {
     }
 
     public String getAppName() {
-        return AppName;
+        return appName;
     }
 
     public void setAppName(String appName) {
-        AppName = appName;
+        this.appName = appName;
     }
 
     public Date getUseDate() {
@@ -79,5 +79,43 @@ public class ClassBorrow {
 
     public void setClassRoomId(Integer classRoomId) {
         this.classRoomId = classRoomId;
+    }
+
+    public ClassBorrow() {
+    }
+
+    public ClassBorrow(Integer id, String appName, Date useDate, String useTime, Date appDate, String reason, Integer status, Integer classRoomId) {
+        this.id = id;
+        this.appName = appName;
+        this.useDate = useDate;
+        this.useTime = useTime;
+        this.appDate = appDate;
+        this.reason = reason;
+        this.status = status;
+        this.classRoomId = classRoomId;
+    }
+
+    public ClassBorrow(String appName, Date useDate, String useTime, Date appDate, String reason, Integer status, Integer classRoomId) {
+        this.appName = appName;
+        this.useDate = useDate;
+        this.useTime = useTime;
+        this.appDate = appDate;
+        this.reason = reason;
+        this.status = status;
+        this.classRoomId = classRoomId;
+    }
+
+    @Override
+    public String toString() {
+        return "ClassBorrow{" +
+                "id=" + id +
+                ", appName='" + appName + '\'' +
+                ", useDate=" + useDate +
+                ", useTime='" + useTime + '\'' +
+                ", appDate=" + appDate +
+                ", reason='" + reason + '\'' +
+                ", status=" + status +
+                ", classRoomId=" + classRoomId +
+                '}';
     }
 }

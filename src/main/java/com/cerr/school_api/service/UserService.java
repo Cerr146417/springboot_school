@@ -89,6 +89,7 @@ public class UserService {
     public boolean updatePassword(String username,String password,String newPassword) throws NoSuchAlgorithmException {
         //账号密码错误
         if(checkUserAccount(username,shaEncryption.encryption(password)) != true){
+            System.out.println("111");
             return false;
         }
         //加密

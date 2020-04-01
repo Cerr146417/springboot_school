@@ -21,7 +21,7 @@
 
     <!-- public boolean updateUserPassword(String username,String password,String newPassword); -->
     <update id="updateUserPassword" >
-        update user set password = #{newPassword} where password = #{password};
+        update user set password = #{newPassword} where username = #{username};
     </update>
 
 

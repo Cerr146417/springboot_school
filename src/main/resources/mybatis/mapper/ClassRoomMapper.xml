@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cerr.school_api.dao.ClassRoomDao">
+
+    <!-- 完成JavaBean和表字段的映射-->
+    <resultMap id="classRoomResultMap" type="com.cerr.school_api.entity.ClassRoom">
+        <id column="id" property="id" />
+        <result column="capacity" property="capacity" />
+        <result column="floor" property="floor" />
+        <result column="build_name" property="buildName" />
+        <result column="extra" property="extra" />
+    </resultMap>
+
+    <!-- 根据教学楼和楼层查所有教室-->
+    <!--public List<ClassRoom> selectClassRoomByFloorAndBuild(String buildName,String floor);-->
+    <select id="selectClassRoomByFloorAndBuild" resultType="com.cerr.school_api.entity.ClassRoom"
+            resultMap="classRoomResultMap">
+        select * from classroom where build_name = #{buildName} and floor = #{floor}
+    </select>
+
+    <!-- 根据教学楼和楼层和教室名查教室 -->
+    <!-- public ClassRoom selectClassRoomByFloorAndBuildAndClass(String buildName,Integer floor,String extra);-->
+    <select id="selectClassRoomByFloorAndBuildAndClass" resultType="com.cerr.school_api.entity.ClassRoom"
+            resultMap="classRoomResultMap">
+        select * from classroom where build_name = #{buildName} and floor = #{floor} and extra = #{extra};
+    </select>
+
+    <!-- 新增教室 -->
+    <!-- public void insertClassRoom(ClassRoom classRoom);-->
+    <insert id="insertClassRoom">
+        insert into classroom(capacity,floor,build_name,extra) values(#{capacity},#{floor},#{buildName},#{extra});
+    </insert>
+
+</mapper>

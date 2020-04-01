@@ -134,6 +134,7 @@ public class UserController {
             json.put("message","用户名或者旧密码错误");
             return json;
         }
+        userService.updatePassword(username,password,newPassword);
         json.put("status",1);
         json.put("message","密码修改成功");
         return json;

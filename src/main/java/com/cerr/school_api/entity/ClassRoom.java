@@ -49,4 +49,22 @@ public class ClassRoom {
     public void setExtra(String extra) {
         this.extra = extra;
     }
+
+    public ClassRoom(Integer capacity, Integer floor, String buildName, String extra) {
+        this.capacity = capacity;
+        this.floor = floor;
+        this.buildName = buildName;
+        this.extra = extra;
+    }
+
+    @Override
+    public String toString() {
+        return "ClassRoom{" +
+                "id=" + id +
+                ", capacity=" + capacity +
+                ", floor=" + floor +
+                ", buildName='" + buildName + '\'' +
+                ", extra='" + extra + '\'' +
+                '}';
+    }
 }

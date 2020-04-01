@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cerr.school_api.dao.FloorDao">
+
+    <!-- 完成JavaBean和表字段的映射-->
+    <resultMap id="floorResultMap" type="com.cerr.school_api.entity.Floor">
+        <id column="id" property="id" />
+        <result column="build_name" property="buildName" />
+        <result column="floor_num" property="floorNum" />
+    </resultMap>
+    
+
+    <!--//根据教学楼名字来查所有楼层
+    public List<Floor> queryFloorByBuildName(String buildName);-->
+    <select id="queryFloorByBuildName" resultType="com.cerr.school_api.entity.Floor" resultMap="floorResultMap">
+        select * from floor where build_name = #{buildName};
+    </select>
+
+    <!--//新增楼层
+    public void addFloor(Floor floor);-->
+    <insert id="addFloor">
+        insert into floor (floor_num,build_name) values (#{floorNum},#{buildName});
+    </insert>
+
+    <!--//删除一个楼层
+    public void deleteFloor(Floor floor);-->
+    <delete id="deleteFloor">
+        delete from floor where floor_num = #{floorNum} and build_name = #{buildName};
+    </delete>
+
+    <!--//根据教学楼名字和层数来查楼层
+    public Floor queryFloorByBuildNameAndFloorNum(Floor floor);-->
+    <select id="queryFloorByBuildNameAndFloorNum" resultType="com.cerr.school_api.entity.Floor"
+            resultMap="floorResultMap">
+        select * from floor where floor_num = #{floorNum} and build_name = #{buildName};
+    </select>
+
+
+</mapper>
